@@ -6,7 +6,7 @@ class TestPublisher(Node):
     def __init__(self):
         super().__init__('test_publisher')
         self.publisher_ = self.create_publisher(Float64, 'input_value', 10)
-        self.timer = self.create_timer(1.0, self.timer_callback)
+        self.timer = self.create_timer(0.1, self.timer_callback)
         self.val = 0.0
 
     def timer_callback(self):

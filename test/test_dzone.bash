@@ -12,7 +12,8 @@ source install/setup.bash
 timeout 15 ros2 launch dzone_filter filter_launch.py > /tmp/dzone_test.log 2>&1
 
 if grep -q "0.15" /tmp/dzone_test.log; then
-    exit 0
+	exit 0
 else
-    exit 1
+	cat /tmp/dzone_test.log
+	exit 1
 fi
