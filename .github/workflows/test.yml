@@ -13,4 +13,4 @@ jobs:
         run: |
           rsync -av ./ /root/ros2_ws/src/dzone_filter/
           cd /root/ros2_ws
-          bash -xv ./src/dzone_filter/test/test_dzone.sh /root
+          bash -xv ./src/dzone_filter/test/test_dzone.bash /root
