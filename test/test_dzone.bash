@@ -9,9 +9,9 @@ cd $dir/ros2_ws
 colcon build --packages-select dzone_filter > /dev/null
 source install/setup.bash
 
-timeout 15 ros2 launch dzone_filter filter_launch.py > /tmp/dzone_test.log 2>&1
+timeout 5 ros2 launch dzone_filter filter_launch.py > /tmp/dzone_test.log 2>&1
 
-if grep -E "[0-9]+\.[0-9]+" /tmp/dzone_test.log | grep -q "0.15"; then
+if grep -q "0.15" /tmp/dzone_test.log; then
     exit 0
 else
     exit 1
