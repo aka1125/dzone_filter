@@ -1,0 +1,18 @@
+#!/bin/bash
+# SPDX-FileCopyrightText: 2025 Yusaku Aka
+# SPDX-License-Identifier: BSD-3-Clause
+
+dir=~
+[ "$1" != "" ] && dir="$1"
+
+cd $dir/ros2_ws
+colcon build --packages-select dzone_filter > /dev/null
+source install/setup.bash
+
+timeout 15 ros2 launch dzone_filter filter_launch.py > /tmp/dzone_test.log 2>&1
+
+if grep -E "[0-9]+\.[0-9]+" /tmp/dzone_test.log | grep -q "0.15"; then
+    exit 0
+else
+    exit 1
+fi
