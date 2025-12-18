@@ -26,7 +26,7 @@ class DZoneFilterNode(Node):
         if diff > zone:
             self.last_sent_value = current_input
             
-        # 出力用メッセージの作成と送信
+        # 出力用メッセージの作成送信
         output_msg = Float64()
         output_msg.data = self.last_sent_value
         self.publisher.publish(output_msg)
