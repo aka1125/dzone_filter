@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64
 
-class TestPublisher(Node):
+class TestPublisher(Node): #test
     def __init__(self):
         super().__init__('test_publisher')
         self.publisher_ = self.create_publisher(Float64, 'input_value', 10)
